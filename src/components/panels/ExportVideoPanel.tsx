@@ -26,10 +26,6 @@ export const ExportVideoPanel = observer(() => {
           />
           <div>secs</div>
         </div>
-        <div className="flex flex-row items-center my-2">
-          <div className="text-xs font-semibold mr-2">Canvas Resolution:</div>
-          <div className="text-xs mr-2">Todo</div>
-        </div>
       </div>
       {/*  Format selection with radio button */}
       <div className="px-[16px]">

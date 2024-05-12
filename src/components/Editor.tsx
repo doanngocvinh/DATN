@@ -18,10 +18,32 @@ export const EditorWithStore = () => {
       <Editor></Editor>
     </StoreContext.Provider>
   );
-}
+};
 
 export const Editor = observer(() => {
   const store = React.useContext(StoreContext);
+
+  async function uploadFile(file: any) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await fetch("http://127.0.0.1:8000/uploadfile/", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("File uploaded successfully:", data);
+    } else {
+      console.error("Upload failed:", response.statusText);
+    }
+  }
+
+  const handleFileChange = (event: any) => {
+    const selectedFile = event.target.files[0];
+    uploadFile(selectedFile); 
+};
 
   useEffect(() => {
     const canvas = new fabric.Canvas("canvas", {
@@ -49,14 +71,17 @@ export const Editor = observer(() => {
   }, []);
   return (
     <div className="grid grid-rows-[500px_1fr_20px] grid-cols-[72px_300px_1fr_250px] h-[100svh]">
-
+      {/* <input type="file" onChange={handleFileChange} /> */}
       <div className="tile row-span-2 flex flex-col">
         <Menu />
       </div>
       <div className="row-span-2 flex flex-col overflow-scroll">
         <Resources />
       </div>
-      <div id="grid-canvas-container" className="col-start-3 bg-slate-100 flex justify-center items-center">
+      <div
+        id="grid-canvas-container"
+        className="col-start-3 bg-slate-100 flex justify-center items-center"
+      >
         <canvas id="canvas" className="h-[500px] w-[800px] row" />
       </div>
       <div className="col-start-4 row-start-1">
@@ -64,9 +89,6 @@ export const Editor = observer(() => {
       </div>
       <div className="col-start-3 row-start-2 col-span-2 relative px-[10px] py-[4px] overflow-scroll">
         <TimeLine />
-      </div>
-      <div className="col-span-4 text-right px-2 text-[0.5em] bg-black text-white">
-        Crafted By Amit Digga
       </div>
     </div>
   );

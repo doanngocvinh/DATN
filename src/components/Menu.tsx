@@ -11,6 +11,7 @@ import {
   MdAudiotrack,
   MdOutlineFormatColorFill,
   MdMovieFilter,
+  MdScience,
 } from "react-icons/md";
 import { Store } from "@/store/Store";
 
@@ -57,20 +58,20 @@ const MENU_OPTIONS = [
       store.setSelectedMenuOption("Video");
     },
   },
-  {
-    name: "Audio",
-    icon: MdAudiotrack,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Audio");
-    },
-  },
-  {
-    name: "Image",
-    icon: MdImage,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Image");
-    },
-  },
+  // {
+  //   name: "Audio",
+  //   icon: MdAudiotrack,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Audio");
+  //   },
+  // },
+  // {
+  //   name: "Image",
+  //   icon: MdImage,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Image");
+  //   },
+  // },
   {
     name: "Text",
     icon: MdTitle,
@@ -78,13 +79,13 @@ const MENU_OPTIONS = [
       store.setSelectedMenuOption("Text");
     },
   },
-  {
-    name: "Animation",
-    icon: MdTransform,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Animation");
-    },
-  },
+  // {
+  //   name: "Animation",
+  //   icon: MdTransform,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Animation");
+  //   },
+  // },
   {
     name: "Effect",
     icon: MdMovieFilter,
@@ -92,11 +93,18 @@ const MENU_OPTIONS = [
       store.setSelectedMenuOption("Effect");
     },
   },
+  // {
+  //   name: "Fill",
+  //   icon: MdOutlineFormatColorFill,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Fill");
+  //   },
+  // },
   {
-    name: "Fill",
-    icon: MdOutlineFormatColorFill,
+    name: "AiModel",
+    icon: MdScience,
     action: (store: Store) => {
-      store.setSelectedMenuOption("Fill");
+      store.setSelectedMenuOption("AiModel");
     },
   },
   {
@@ -106,4 +114,5 @@ const MENU_OPTIONS = [
       store.setSelectedMenuOption("Export");
     },
   },
+  
 ];

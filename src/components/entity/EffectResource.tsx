@@ -6,8 +6,8 @@ import { observer } from "mobx-react";
 import { VideoEditorElement, ImageEditorElement, EffecType } from "@/types";
 
 const EFFECT_TYPE_TO_LABEL: Record<string, string> = {
-  blackAndWhite: "Black and White",
   none: "None",
+  blackAndWhite: "Black and White",
   saturate: "Saturate",
   sepia: "Sepia",
   invert: "Invert",
