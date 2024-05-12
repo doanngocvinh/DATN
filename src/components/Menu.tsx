@@ -101,10 +101,10 @@ const MENU_OPTIONS = [
   //   },
   // },
   {
-    name: "AiModel",
+    name: "Ai Effect",
     icon: MdScience,
     action: (store: Store) => {
-      store.setSelectedMenuOption("AiModel");
+      store.setSelectedMenuOption("Ai Effect");
     },
   },
   {

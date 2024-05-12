@@ -108,4 +108,4 @@ export type MenuOption =
   | "Animation"
   | "Effect"
   | "Fill"
-  | "AiModel";  
+  | "Ai Effect";  
