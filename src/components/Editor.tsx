@@ -9,6 +9,7 @@ import { ElementsPanel } from "./panels/ElementsPanel";
 import { Menu } from "./Menu";
 import { TimeLine } from "./TimeLine";
 import { Store } from "@/store/Store";
+import { uploadFile } from "@/utils/ai-model";
 import "@/utils/fabric-utils";
 
 export const EditorWithStore = () => {
@@ -23,27 +24,10 @@ export const EditorWithStore = () => {
 export const Editor = observer(() => {
   const store = React.useContext(StoreContext);
 
-  async function uploadFile(file: any) {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const response = await fetch("http://127.0.0.1:8000/uploadfile/", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log("File uploaded successfully:", data);
-    } else {
-      console.error("Upload failed:", response.statusText);
-    }
-  }
-
-  const handleFileChange = (event: any) => {
-    const selectedFile = event.target.files[0];
-    uploadFile(selectedFile); 
-};
+//   const handleFileChange = (event: any) => {
+//     const selectedFile = event.target.files[0];
+//     uploadFile(selectedFile); 
+// };
 
   useEffect(() => {
     const canvas = new fabric.Canvas("canvas", {

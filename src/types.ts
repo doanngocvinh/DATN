@@ -70,7 +70,7 @@ EffectBase<"hayao"> |
 EffectBase<"hayaov2"> | 
 EffectBase<"shinaki">;
 export type AiEffect = HayaoEffect;
-export type AiEffectType = Effect["type"];
+export type AiEffectType = AiEffect["type"];
 
 
 export type AnimationBase<T, P = {}> = {

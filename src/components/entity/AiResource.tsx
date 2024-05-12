@@ -3,7 +3,7 @@ import React from "react";
 import { StoreContext } from "@/store";
 // import { formatTimeToMinSec } from "@/utils";
 import { observer } from "mobx-react";
-import { VideoEditorElement, ImageEditorElement, EffecType } from "@/types";
+import { VideoEditorElement, ImageEditorElement, EffecType, AiEffectType } from "@/types";
 
 const EFFECT_TYPE_TO_LABEL: Record<string, string> = {
   none: "None",
@@ -21,17 +21,17 @@ export const AiEffectResource = observer((props: EffectResourceProps) => {
     <div className="rounded-lg overflow-hidden items-center bg-slate-800 m-[15px] flex flex-col relative min-h-[100px] p-2">
       <div className="flex flex-row justify-between w-full">
         <div className="text-white py-1 text-base text-left w-full">
-          {EFFECT_TYPE_TO_LABEL[props.editorElement.properties.effect.type]}
+          {EFFECT_TYPE_TO_LABEL[props.editorElement.properties.aiEffect.type]}
         </div>
       </div>
       {/* Select effect from drop down */}
       <select
         className="bg-slate-100 text-black rounded-lg px-2 py-1 ml-2 w-16 text-xs"
-        value={props.editorElement.properties.effect.type}
+        value={props.editorElement.properties.aiEffect.type}
         onChange={(e) => {
           const type = e.target.value;
-          store.updateEffect(props.editorElement.id, {
-            type: type as EffecType,
+          store.updateAiEffect(props.editorElement.id, {
+            type: type as AiEffectType,
           });
         }}
       >
