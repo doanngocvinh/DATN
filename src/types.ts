@@ -11,11 +11,11 @@ export type EditorElementBase<T extends string, P> = {
 };
 export type VideoEditorElement = EditorElementBase<
   "video",
-  { src: string; elementId: string; imageObject?: fabric.Image, effect: Effect }
+  { src: string; elementId: string; imageObject?: fabric.Image, effect: Effect, aiEffect: AiEffect }
 >;
 export type ImageEditorElement = EditorElementBase<
   "image",
-  { src: string; elementId: string; imageObject?: fabric.Object, effect: Effect }
+  { src: string; elementId: string; imageObject?: fabric.Object, effect: Effect, aiEffect: AiEffect }
 >;
 
 export type AudioEditorElement = EditorElementBase<
@@ -64,6 +64,14 @@ EffectBase<"invert"> |
 EffectBase<"saturate"> ;
 export type Effect = BlackAndWhiteEffect;
 export type EffecType = Effect["type"];
+
+export type HayaoEffect = EffectBase<"none"> | 
+EffectBase<"hayao"> | 
+EffectBase<"hayaov2"> | 
+EffectBase<"shinaki">;
+export type AiEffect = HayaoEffect;
+export type AiEffectType = Effect["type"];
+
 
 export type AnimationBase<T, P = {}> = {
   id: string;

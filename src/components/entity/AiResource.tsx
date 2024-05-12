@@ -7,11 +7,11 @@ import { VideoEditorElement, ImageEditorElement, EffecType } from "@/types";
 
 const EFFECT_TYPE_TO_LABEL: Record<string, string> = {
   none: "None",
-  blackAndWhite: "Black and White",
-  saturate: "Saturate",
-  sepia: "Sepia",
-  invert: "Invert",
+  Hayao: "Hayao",
+  Hayaov2: "Hayaov2",
+  Shinkai: "Shinkai",
 };
+
 export type EffectResourceProps = {
   editorElement: VideoEditorElement | ImageEditorElement;
 };

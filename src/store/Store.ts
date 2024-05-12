@@ -435,6 +435,9 @@ export class Store {
           src: videoElement.src,
           effect: {
             type: "none",
+          },
+          aiEffect:{
+            type: "none",
           }
         },
       },

@@ -2,8 +2,8 @@
 import React from "react";
 import { StoreContext } from "@/store";
 import { observer } from "mobx-react";
-import { EffectResource } from "../entity/EffectResource";
 import { isEditorImageElement, isEditorVideoElement } from "@/store/Store";
+import { AiEffectResource } from "../entity/AiResource";
 
 export const AiPanel = observer(() => {
   const store = React.useContext(StoreContext);
@@ -16,7 +16,7 @@ export const AiPanel = observer(() => {
       {selectedElement &&
       (isEditorImageElement(selectedElement) ||
         isEditorVideoElement(selectedElement)) ? (
-        <EffectResource editorElement={selectedElement} />
+        <AiEffectResource editorElement={selectedElement} />
       ) : null}
     </>
   );
