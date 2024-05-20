@@ -9,7 +9,7 @@ export async function uploadFile(videoObject:   any, type: AiEffectType) {
         const blob = await fetch(blobUrl).then((res) => res.blob());
 
         // Create a new file object from the blob
-        const file = new File([blob], "coverVideo.mp4", { type: "video/mp4" });
+        const file = new File([blob], "video.mp4", { type: "video/mp4" });
 
         // Prepare the FormData with the file and the extra parameter
         const formData = new FormData();
@@ -18,6 +18,7 @@ export async function uploadFile(videoObject:   any, type: AiEffectType) {
 
         // Post the form data with the file to the FastAPI endpoint
         const response = await fetch("http://127.0.0.1:8000/uploadfile/", {
+        // const response = await fetch("http://127.0.0.1:8000/files/", {
             method: "POST",
             body: formData,
         });

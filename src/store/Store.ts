@@ -952,6 +952,7 @@ export class Store {
             // filters: filters,
             // @ts-ignore
             customFilter: element.properties.effect.type,
+            src: element.properties.src,
           });
 
           if (element.properties.aiEffect.type !== 'none'){
