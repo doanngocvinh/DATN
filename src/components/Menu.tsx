@@ -86,13 +86,13 @@ const MENU_OPTIONS = [
   //     store.setSelectedMenuOption("Animation");
   //   },
   // },
-  {
-    name: "Effect",
-    icon: MdMovieFilter,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Effect");
-    },
-  },
+  // {
+  //   name: "Effect",
+  //   icon: MdMovieFilter,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Effect");
+  //   },
+  // },
   // {
   //   name: "Fill",
   //   icon: MdOutlineFormatColorFill,
