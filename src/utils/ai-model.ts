@@ -25,8 +25,15 @@ export async function uploadFile(videoObject:   any, type: AiEffectType) {
 
         // Handle the response
         if (response.ok) {
-            const data = await response.json();
-            console.log("File uploaded successfully:", data);
+
+            console.log(response)
+            const processedBlob = await response.blob();
+
+            // Create a new URL for the processed video
+            const processedBlobUrl = URL.createObjectURL(processedBlob);
+            console.log(processedBlobUrl)
+            // Assign the processed video URL back to videoObject
+            videoObject.setSrc(processedBlobUrl);
         } else {
             throw new Error(`Upload failed: ${response.statusText}`);
         }

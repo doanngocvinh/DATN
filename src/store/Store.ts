@@ -917,7 +917,7 @@ export class Store {
     store.canvas.renderAll();
   }
 
-  refreshElementsAiEffect() {
+  async refreshElementsAiEffect() {
     const store = this;
     if (!store.canvas) return;
     const canvas = store.canvas;
@@ -929,14 +929,17 @@ export class Store {
           console.log("elementid", element.properties.elementId);
           if (document.getElementById(element.properties.elementId) == null)
             continue;
+
           const videoElement = document.getElementById(
             element.properties.elementId
           );
           if (!isHtmlVideoElement(videoElement)) continue;
+
           // const filters = [];
           // if (element.properties.effect?.type === "blackAndWhite") {
           //   filters.push(new fabric.Image.filters.Grayscale());
           // }
+
           const videoObject = new fabric.CoverVideo(videoElement, {
             name: element.id,
             left: element.placement.x,
@@ -956,8 +959,9 @@ export class Store {
           });
 
           if (element.properties.aiEffect.type !== 'none'){
-            uploadFile(videoObject, element.properties.aiEffect.type);
+            await uploadFile(videoObject, element.properties.aiEffect.type);
           }
+
 
           element.fabricObject = videoObject;
           element.properties.imageObject = videoObject;
