@@ -957,7 +957,6 @@ export class Store {
             customFilter: element.properties.effect.type,
             src: element.properties.src,
           });
-
           if (element.properties.aiEffect.type !== 'none'){
             await uploadFile(videoObject, element.properties.aiEffect.type);
           }

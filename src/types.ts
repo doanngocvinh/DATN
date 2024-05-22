@@ -67,8 +67,10 @@ export type EffecType = Effect["type"];
 
 export type HayaoEffect = EffectBase<"none"> | 
 EffectBase<"hayao"> | 
-EffectBase<"hayaov2"> | 
-EffectBase<"shinaki">;
+EffectBase<"shinkai"> | 
+EffectBase<"paprika"> | 
+EffectBase<"portraitSketch"> | 
+EffectBase<"jpFace">;
 export type AiEffect = HayaoEffect;
 export type AiEffectType = AiEffect["type"];
 

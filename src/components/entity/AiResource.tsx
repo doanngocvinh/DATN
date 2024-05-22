@@ -7,9 +7,11 @@ import { VideoEditorElement, ImageEditorElement, EffecType, AiEffectType } from 
 
 const EFFECT_TYPE_TO_LABEL: Record<string, string> = {
   none: "None",
-  Hayao: "Hayao",
-  Hayaov2: "Hayaov2",
-  Shinkai: "Shinkai",
+  hayao: "hayao",
+  shinkai: "shinkai",
+  paprika: "paprika",
+  portraitSketch: "portraitSketch",
+  jpFace: "jpFace",
 };
 
 export type EffectResourceProps = {
