@@ -11,7 +11,7 @@ const Model = {
 
 export async function uploadFile(videoObject: any, type: AiEffectType) {
   // Extract the blob URL from the videoObject
-  const blobUrl = videoObject.src;
+  const blobUrl = videoObject;
 
   try {
     // Fetch the blob data from the blob URL
@@ -55,9 +55,8 @@ export async function uploadFile(videoObject: any, type: AiEffectType) {
       const presignedUrlJson = await presignedUrlResponse.json();
       const presignedUrl = presignedUrlJson.url;
       console.log(presignedUrl);
-
-      // Assign the pre-signed URL back to videoObject's src attribute
-      videoObject.setSrc(presignedUrl);
+      
+      return presignedUrl
     } else {
       throw new Error(`Upload failed: ${response.statusText}`);
     }

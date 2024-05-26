@@ -939,6 +939,12 @@ export class Store {
           // if (element.properties.effect?.type === "blackAndWhite") {
           //   filters.push(new fabric.Image.filters.Grayscale());
           // }
+          let aiSrc = '';
+          if (element.properties.aiEffect.type !== 'none'){
+            aiSrc = await uploadFile(element.properties.src, element.properties.aiEffect.type);
+          }
+
+          element.properties.src = aiSrc;
 
           const videoObject = new fabric.CoverVideo(videoElement, {
             name: element.id,
@@ -957,9 +963,9 @@ export class Store {
             customFilter: element.properties.effect.type,
             src: element.properties.src,
           });
-          if (element.properties.aiEffect.type !== 'none'){
-            await uploadFile(videoObject, element.properties.aiEffect.type);
-          }
+          // if (element.properties.aiEffect.type !== 'none'){
+          //   await uploadFile(videoObject, element.properties.aiEffect.type);
+          // }
 
 
           element.fabricObject = videoObject;
